@@ -41,16 +41,19 @@ class MainActivity : AppCompatActivity() {
     var activePlayer = 1
 
     private fun playGame(cellID: Int, buSelected: Button) {
+
         if(activePlayer == 1){
             buSelected.text = "X"
             buSelected.setBackgroundColor(Color.BLUE)
             player1.add(cellID)
             activePlayer = 2
+            println(player1)
         }else{
             buSelected.text = "O"
             buSelected.setBackgroundColor(Color.GREEN)
             player2.add(cellID)
             activePlayer = 1
+            println(player2)
         }
 
         buSelected.isEnabled = false
@@ -103,10 +106,17 @@ class MainActivity : AppCompatActivity() {
             winner = 2
         }
         //cross1
-        if((player1.contains(1) && player1.contains(5) && player1.contains(9)) || (player1.contains(3) && player1.contains(5) && player1.contains(7))){
+        if(player1.contains(1) && player1.contains(5) && player1.contains(9)){
             winner = 1
         }
-        if((player2.contains(1) && player2.contains(5) && player2.contains(9)) || (player2.contains(3) && player2.contains(5) && player2.contains(7))){
+        if(player2.contains(1) && player2.contains(5) && player2.contains(9)){
+            winner = 2
+        }
+        //cross2
+        if(player1.contains(3) && player1.contains(5) && player1.contains(7)){
+            winner = 1
+        }
+        if(player2.contains(3) && player2.contains(5) && player2.contains(7)){
             winner = 2
         }
 
