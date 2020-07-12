@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
             R.id.bu9 -> cellID = 9
 
         }
-        Toast.makeText(this,"Cell ID: "+cellID,Toast.LENGTH_LONG).show()
         playGame(cellID,buSelected)
     }
 
@@ -130,7 +129,6 @@ class MainActivity : AppCompatActivity() {
 
         if(winner == 1){
             Calle.text = "Player1 Winner"
-            Toast.makeText(this,"Player1 is the winner",Toast.LENGTH_LONG).show()
             bu1.isEnabled = false
             bu2.isEnabled = false
             bu3.isEnabled = false
@@ -143,7 +141,6 @@ class MainActivity : AppCompatActivity() {
         }
         if(winner == 2){
             Calle.text = "Player2 Winner"
-            Toast.makeText(this,"Player2 is the winner",Toast.LENGTH_LONG).show()
             bu1.isEnabled = false
             bu2.isEnabled = false
             bu3.isEnabled = false
