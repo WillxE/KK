@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import androidx.annotation.ColorRes
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.time.seconds
 
 
@@ -14,6 +16,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
+    fun buRestart(view: View){
+        reOpenGame()
     }
 
     fun buClick(view: View){
@@ -43,14 +48,16 @@ class MainActivity : AppCompatActivity() {
     private fun playGame(cellID: Int, buSelected: Button) {
 
         if(activePlayer == 1){
+            Calle.text = "Player2 Turn"
             buSelected.text = "X"
-            buSelected.setBackgroundColor(Color.BLUE)
+            buSelected.setBackgroundColor(Color.parseColor("#9da5bd"))
             player1.add(cellID)
             activePlayer = 2
             println(player1)
         }else{
+            Calle.text = "Player1 Turn"
             buSelected.text = "O"
-            buSelected.setBackgroundColor(Color.GREEN)
+            buSelected.setBackgroundColor(Color.parseColor("#FFC0CB"))
             player2.add(cellID)
             activePlayer = 1
             println(player2)
@@ -122,12 +129,30 @@ class MainActivity : AppCompatActivity() {
 
 
         if(winner == 1){
+            Calle.text = "Player1 Winner"
             Toast.makeText(this,"Player1 is the winner",Toast.LENGTH_LONG).show()
-            reOpenGame()
+            bu1.isEnabled = false
+            bu2.isEnabled = false
+            bu3.isEnabled = false
+            bu4.isEnabled = false
+            bu5.isEnabled = false
+            bu6.isEnabled = false
+            bu7.isEnabled = false
+            bu8.isEnabled = false
+            bu9.isEnabled = false
         }
         if(winner == 2){
+            Calle.text = "Player2 Winner"
             Toast.makeText(this,"Player2 is the winner",Toast.LENGTH_LONG).show()
-            reOpenGame()
+            bu1.isEnabled = false
+            bu2.isEnabled = false
+            bu3.isEnabled = false
+            bu4.isEnabled = false
+            bu5.isEnabled = false
+            bu6.isEnabled = false
+            bu7.isEnabled = false
+            bu8.isEnabled = false
+            bu9.isEnabled = false
         }
 
 
