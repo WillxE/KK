@@ -60,6 +60,7 @@ class MainActivity : AppCompatActivity() {
             player2.add(cellID)
             activePlayer = 1
             println(player2)
+
         }
 
         buSelected.isEnabled = false
@@ -125,6 +126,9 @@ class MainActivity : AppCompatActivity() {
         if(player2.contains(3) && player2.contains(5) && player2.contains(7)){
             winner = 2
         }
+        if((player1.size == 5 && player2.size == 5) || (player1.size == 5 && player2.size == 4)){
+            winner = 3
+        }
 
 
         if(winner == 1){
@@ -151,7 +155,18 @@ class MainActivity : AppCompatActivity() {
             bu8.isEnabled = false
             bu9.isEnabled = false
         }
-
+        if(winner == 3){
+            Calle.text = "DRAW !!"
+            bu1.isEnabled = false
+            bu2.isEnabled = false
+            bu3.isEnabled = false
+            bu4.isEnabled = false
+            bu5.isEnabled = false
+            bu6.isEnabled = false
+            bu7.isEnabled = false
+            bu8.isEnabled = false
+            bu9.isEnabled = false
+        }
 
     }
     private fun reOpenGame() {
